@@ -1,0 +1,28 @@
+<h1>Repo Details</h1>
+
+<div>
+    <p><strong>Full Name</strong>: 
+     <a [href]="userGitUrl" target="_blank">{{userName}}</a>
+    </p>
+</div>
+
+<div>
+    <p><strong>Repository name</strong>:
+     <a [href]="repoGitUrl" target="_blank">{{repoName}}</a>
+    </p>
+</div>
+
+<div>
+    <p><strong>Number of open issues</strong>: {{openIssues}}</p>
+</div>
+
+<div>
+    <p><strong>Default branch</strong>: {{defaultBranch}}</p>
+</div>
+
+<div class="rd">
+    <p><strong>Readme</strong>: </p>
+    
+    <markdown [data]="readme"></markdown>
+</div>
+

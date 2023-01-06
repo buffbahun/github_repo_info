@@ -1,0 +1,67 @@
+
+.pag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.pag button {
+    margin: 0 5px;
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    border: 1px solid black;
+}
+
+.pag button:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid rgb(180, 180, 180);
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 10px;
+}
+
+form > div {
+    margin: auto;
+    text-align: center;
+}
+
+form > div > * {
+    display: block;
+}
+
+.table {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 500px;
+    border-collapse: collapse;
+}
+
+td, th {
+    /* border-top: solid 1px rgb(201, 201, 201); */
+    /* border-bottom: solid 1px rgb(201, 201, 201); */
+    padding: 3px 5px;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: rgb(240, 240, 240);
+}
+
+tbody tr:hover {
+    border: solid 1px black;
+    cursor: pointer;
+} 
+
+thead th > * {
+    display: inline;
+}

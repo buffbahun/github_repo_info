@@ -1,0 +1,77 @@
+<div class="cont">
+
+<h1>Github Info</h1>
+
+<form [formGroup]="searchForm">
+    
+    <div>
+        <label for="src">Repository Name: </label>
+        <input id="src" type="text" formControlName="keyword">
+    </div>
+
+    <div>
+        <label for="srtQur">Sort Type: </label>
+        <select formControlName="sortQuery" id="srtQur">
+            <option
+                *ngFor="let val of sortQuries"
+            > {{val}} </option>
+        </select>
+    </div>
+
+    <div>
+        <label for="srtQrd">Sort Order: </label>
+        <select formControlName="sortOrder" id="srtQrd">
+            <option
+                *ngFor="let val of sortOrders"
+            > {{val}} </option>
+        </select>
+    </div>
+
+    <div>
+        <label for="pgn">Results per page: </label>
+        <select formControlName="pagination" id="pgn">
+            <option
+                *ngFor="let val of resultPerPage"
+            > {{val}} </option>
+        </select>
+    </div>
+
+</form>
+
+<div class="pag">
+    <button (click)="onPaginate(false)"> &lt; </button>
+    <p> <strong> {{currentPage}} </strong> of <strong> {{totalPages}} </strong></p>
+    <button (click)="onPaginate(true)"> &gt; </button>
+</div>
+
+<div class="table">
+    <table>
+        <thead>
+            <tr>
+                <th>Repo Name</th>
+                <th>Author</th>
+                <th>Stars <img src="../../../assets/star-stroked-15.svg" width="15" alt="stars"> </th>
+                <th>Watch <img src="../../../assets/viewer.svg" width="50" alt="watchers"></th>
+                <th>Forks <img src="../../../assets/code-fork-symbol-svgrepo-com.svg" width="15" alt="forks"></th>
+                <th>Short Description</th>
+                <th>Last Update</th>
+            </tr>
+        </thead>
+    
+        <tbody *ngIf="resObj !== null && resObj?.items.length > 0">
+            <tr *ngFor="let repo of resObj?.items"
+                (click)="onDetail(repo)"
+            >
+                <td> {{repo.name}} </td>
+                <td> {{repo.owner.login}} </td>
+                <td> {{repo.stargazers_count}} </td>
+                <td> {{repo.watchers_count}} </td>
+                <td> {{repo.forks_count}} </td>
+                <td> {{repo.description}} </td>
+                <td> {{repo.updated_at | date}} </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</div>
